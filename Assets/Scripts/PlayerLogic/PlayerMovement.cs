@@ -1,10 +1,9 @@
 using App;
 using Photon.Pun;
-using PlayerLogic;
 using Services.Input;
 using UnityEngine;
 
-namespace Player
+namespace PlayerLogic
 {
     public class PlayerMovement : MonoBehaviourPunCallbacks
     {

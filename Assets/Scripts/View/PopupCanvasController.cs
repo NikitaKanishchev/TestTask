@@ -1,35 +1,37 @@
-﻿using System.Collections.Generic;
-using Player;
-using UnityEngine;
+﻿using UnityEngine;
+using Photon.Pun;
+using PlayerLogic;
 
 namespace View
 {
-    public class PopupCanvasController : MonoBehaviour
+    public class PopupCanvasController : MonoBehaviourPun
     {
         [SerializeField] private Canvas _canvas = null;
         
-        [SerializeField] private GameObject _winPanel = null;
-        
-        private List<PlayerDeath> _playerDeaths = null;
+        [SerializeField] private WinPanelController _winPanel = null;
 
+        public PhotonView PhotonView { get; private set; }
+        
+        private Player _activePlayer = null;
+
+        private CoinPicker picker;
         private void Awake()
         {
             _canvas.worldCamera = Camera.main;
-            
-            foreach (var player in FindObjectsOfType<PlayerDeath>())
-            {
-                _playerDeaths.Add(player);
-            }
-
-            foreach (var playerDeath in _playerDeaths)
-            {
-                playerDeath.PlayerDead += PlayerDeathOnPlayerDead;
-            }
+            PhotonView = GetComponent<PhotonView>();
+            _activePlayer = ActivePlayer();
         }
 
-        private void PlayerDeathOnPlayerDead()
+        private Player ActivePlayer() => 
+            FindObjectOfType<Player>();
+
+        [PunRPC]
+        public void ShowResults()
         {
-            _winPanel.SetActive(true);
+            _winPanel.SetNickName(_activePlayer.photonView.Owner.NickName);
+            _winPanel.SetQuantityCoin(_activePlayer.CoinPicker.Coin);
+            _winPanel.gameObject.SetActive(true);
         }
+
     }
 }

@@ -1,21 +1,27 @@
-using UnityEngine;
 using Photon.Pun;
-using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace HpBar
+namespace PlayerLogic
 {
     
-    public class Player : MonoBehaviourPunCallbacks
+    public class Player : MonoBehaviourPun
     {
-
         [SerializeField] public Text _playerName;
-        [SerializeField] private GameObject _healthBar;
-        [SerializeField] public TMP_Text _coin;
+        
+        [SerializeField] private CoinPicker _coinPicker;
+        
+        public CoinPicker CoinPicker => _coinPicker;
 
-        void Start()
+        private void Start()
         {
             _playerName.text = GetComponent<PhotonView>().Owner.NickName;
+        }
+
+        [PunRPC]
+        public int GetCoinsValue()
+        {
+            return CoinPicker.Coin;
         }
 
     }

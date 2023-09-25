@@ -308,8 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerName: {fileID: 4931677180070514335}
-  _healthBar: {fileID: 7522189430329358382}
-  _coin: {fileID: 3581838357185842258}
+  _coinPicker: {fileID: 6100409039178568629}
 --- !u!114 &4140801985687094050
 MonoBehaviour:
   m_ObjectHideFlags: 0

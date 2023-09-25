@@ -1,22 +1,23 @@
 using Photon.Pun;
-using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class PlayerName : MonoBehaviourPunCallbacks
+namespace PlayerLogic
 {
-    public InputField CreateInputName;
-    
-    private void Start()
+    public class PlayerName : MonoBehaviourPunCallbacks
     {
-        PhotonNetwork.ConnectUsingSettings();
-        CreateInputName.text = PlayerPrefs.GetString("name");
-        PhotonNetwork.NickName = CreateInputName.text;
-    }
-    public void SaveName()
+        public InputField CreateInputName;
+    
+        private void Start()
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            CreateInputName.text = PlayerPrefs.GetString("name");
+            PhotonNetwork.NickName = CreateInputName.text;
+        }
+        public void SaveName()
         {
             PlayerPrefs.SetString("name",CreateInputName.text);
             PhotonNetwork.NickName = CreateInputName.text;
         }
+    }
 }

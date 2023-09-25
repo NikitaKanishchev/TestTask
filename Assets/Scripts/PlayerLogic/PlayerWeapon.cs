@@ -1,5 +1,7 @@
 ﻿using Photon.Pun;
 using UnityEngine;
+using Bullet = Weapon.Bullet;
+
 namespace PlayerLogic
 {
     public class PlayerWeapon : MonoBehaviour
