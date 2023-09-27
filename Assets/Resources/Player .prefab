@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 8659494553714796185}
   - component: {fileID: 3431640999976861544}
   - component: {fileID: 4243310272001164940}
-  - component: {fileID: 4677303107280379529}
+  - component: {fileID: 4639841827016652856}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Untagged
@@ -378,7 +378,7 @@ MonoBehaviour:
   _bullet: {fileID: -5721394990446445543, guid: 572d411aa7aab6e4dab5ccef3383a3f5, type: 3}
   _firePoint: {fileID: 3461858975626266}
   _bulletSpeed: 5
---- !u!114 &4677303107280379529
+--- !u!114 &4639841827016652856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
