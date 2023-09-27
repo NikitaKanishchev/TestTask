@@ -13,7 +13,7 @@ namespace View
 
         public PhotonView PhotonView { get; private set; }
         
-        private PlayerBase _activePlayerBase = null;
+        private PlayerInfoGetter _activePlayerBase = null;
 
         private CoinPicker picker;
         private void Awake()
@@ -24,8 +24,8 @@ namespace View
             Debug.Log("Player"+ _activePlayerBase.name);
         }
 
-        private PlayerBase ActivePlayerBase() => 
-            FindObjectOfType<PlayerBase>();
+        private PlayerInfoGetter ActivePlayerBase() => 
+            FindObjectOfType<PlayerInfoGetter>();
 
         [PunRPC]
         public void ShowResults()

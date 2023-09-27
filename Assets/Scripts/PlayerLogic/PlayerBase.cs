@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace PlayerLogic
 {
-    public class PlayerBase : MonoBehaviourPun
+    public class PlayerInfoGetter : MonoBehaviourPun
     {
         [SerializeField] public Text _playerName;
         
