@@ -1,8 +1,9 @@
 using System;
 using Photon.Pun;
+using PlayerLogic;
 using UnityEngine;
 
-namespace PlayerLogic
+namespace CoinLogic
 {
     public class CoinPicker : MonoBehaviourPun
     {

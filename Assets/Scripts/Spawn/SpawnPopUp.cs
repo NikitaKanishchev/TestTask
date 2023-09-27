@@ -1,38 +1,41 @@
 using System.Collections;
-using UnityEngine;
 using Photon.Pun;
 using PlayerLogic;
+using UnityEngine;
 using View;
 
-public class SpawnPopUp : MonoBehaviourPun
+namespace Spawn
 {
-    [SerializeField] private SpawnPlayer _spawnPlayer;
-    [SerializeField] private GameObject _popUp;
-
-    private void Awake()
+    public class SpawnPopUp : MonoBehaviourPun
     {
-        _spawnPlayer.PlayerSpawned += SpawnPlayerOnPlayerSpawned;
-    }
+        [SerializeField] private SpawnPlayer _spawnPlayer;
+        [SerializeField] private GameObject _popUp;
 
-    private void SpawnPlayerOnPlayerSpawned(PlayerDeath playerDeath)
-    {
-        playerDeath.PlayerDead += PlayerDeathOnPlayerDead;
+        private void Awake()
+        {
+            _spawnPlayer.PlayerSpawned += SpawnPlayerOnPlayerSpawned;
+        }
 
-    }
+        private void SpawnPlayerOnPlayerSpawned(PlayerDeath playerDeath)
+        {
+            playerDeath.PlayerDead += PlayerDeathOnPlayerDead;
+        }
 
-    private void PlayerDeathOnPlayerDead()
-    {
-        StartCoroutine(CoolDownBeforeResults());
-    }
+        private void PlayerDeathOnPlayerDead()
+        {
+            StartCoroutine(CoolDownBeforeResults());
+        }
 
-    private IEnumerator CoolDownBeforeResults()
-    {
-        yield return new WaitForSeconds(1f);
-        ShowResults();
-    }
-    private void ShowResults()
-    {
-        var canvas = PhotonNetwork.Instantiate(_popUp.gameObject.name, Vector3.zero, Quaternion.identity);
-        canvas.GetComponent<PopupCanvasController>().PhotonView.RPC("ShowResults", RpcTarget.All);
+        private IEnumerator CoolDownBeforeResults()
+        {
+            yield return new WaitForSeconds(1f);
+            ShowResults();
+        }
+        
+        private void ShowResults()
+        {
+            var canvas = PhotonNetwork.Instantiate(_popUp.gameObject.name, Vector3.zero, Quaternion.identity);
+            canvas.GetComponent<PopupCanvasController>().PhotonView.RPC("ShowResults", RpcTarget.All);
+        }
     }
 }

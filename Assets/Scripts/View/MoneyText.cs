@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CoinLogic;
 using UnityEngine.UI;
 using Photon.Pun;
 using PlayerLogic;

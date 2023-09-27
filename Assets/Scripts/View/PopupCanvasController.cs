@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CoinLogic;
+using UnityEngine;
 using Photon.Pun;
 using PlayerLogic;
 
@@ -12,24 +13,25 @@ namespace View
 
         public PhotonView PhotonView { get; private set; }
         
-        private Player _activePlayer = null;
+        private PlayerBase _activePlayerBase = null;
 
         private CoinPicker picker;
         private void Awake()
         {
             _canvas.worldCamera = Camera.main;
             PhotonView = GetComponent<PhotonView>();
-            _activePlayer = ActivePlayer();
+            _activePlayerBase = ActivePlayerBase();
+            Debug.Log("Player"+ _activePlayerBase.name);
         }
 
-        private Player ActivePlayer() => 
-            FindObjectOfType<Player>();
+        private PlayerBase ActivePlayerBase() => 
+            FindObjectOfType<PlayerBase>();
 
         [PunRPC]
         public void ShowResults()
         {
-            _winPanel.SetNickName(_activePlayer.photonView.Owner.NickName);
-            _winPanel.SetQuantityCoin(_activePlayer.CoinPicker.Coin);
+            _winPanel.SetNickName(_activePlayerBase.photonView.Owner.NickName);
+            _winPanel.SetQuantityCoin(_activePlayerBase.CoinPicker.Coin);
             _winPanel.gameObject.SetActive(true);
         }
 

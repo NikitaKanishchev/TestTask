@@ -1,0 +1,62 @@
+* text=auto
+# Unity files
+*.prefab diff -merge text
+*.unity diff -merge text
+*.asset diff -merge text
+*.controller diff -merge text
+*.playable diff -merge text
+*.mat diff -merge text
+*.anim diff -merge text
+*.meta diff -merge text
+*.sln diff -merge text
+*.xml diff merge text
+*.lighting diff -merge text
+# 3D models
+*.3dm -diff -merge -text 
+*.3ds -diff -merge -text 
+*.blend -diff -merge -text 
+*.c4d -diff -merge -text 
+*.collada -diff -merge -text 
+*.dae -diff -merge -text 
+*.dxf -diff -merge -text 
+*.fbx -diff -merge -text 
+*.jas -diff -merge -text 
+*.lws -diff -merge -text 
+*.lxo -diff -merge -text 
+*.ma -diff -merge -text 
+*.max -diff -merge -text 
+*.mb -diff -merge -text 
+*.obj -diff -merge -text 
+*.ply -diff -merge -text 
+*.skp -diff -merge -text 
+*.stl -diff -merge -text 
+*.ztl -diff -merge -text 
+# Audio
+*.aif -diff -merge -text
+*.aiff -diff -merge -text
+*.it -diff -merge -text
+*.mod -diff -merge -text
+*.mp3 -diff -merge -text
+*.ogg -diff -merge -text
+*.s3m -diff -merge -text
+*.wav -diff -merge -text
+*.xm -diff -merge -text
+# Fonts
+*.otf -diff -merge -text
+*.ttf -diff -merge -text
+# Images
+*.bmp -diff -merge -text
+*.exr -diff -merge -text
+*.gif -diff -merge -text
+*.hdr -diff -merge -text
+*.iff -diff -merge -text
+*.jpeg -diff -merge -text
+*.jpg -diff -merge -text
+*.pict -diff -merge -text
+*.png -diff -merge -text
+*.psd -diff -merge -text
+*.tga -diff -merge -text
+*.tif -diff -merge -text
+*.tiff -diff -merge -text
+# Source
+*.cs diff merge text

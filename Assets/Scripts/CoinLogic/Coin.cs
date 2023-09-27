@@ -1,6 +1,6 @@
 using Photon.Pun;
 
-namespace PlayerLogic
+namespace CoinLogic
 {
     public class Coin : MonoBehaviourPunCallbacks
     {

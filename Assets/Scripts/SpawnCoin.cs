@@ -1,5 +1,7 @@
+using CoinLogic;
 using UnityEngine;
 using Photon.Pun;
+using PlayerLogic;
 
 public class SpawnCoin : MonoBehaviourPunCallbacks
 {

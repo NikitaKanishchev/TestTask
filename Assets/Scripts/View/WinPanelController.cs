@@ -1,7 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
 
-
 namespace View
 {
     public class WinPanelController : MonoBehaviour
